@@ -1,0 +1,17 @@
+# Pinned dependencies for founder-portfolio skill.
+# Versions chosen for reproducibility on Python 3.10+.
+#
+# SHA256 hash pinning (pip install --require-hashes) is intentionally
+# deferred until marketplace/Plugin distribution. For a self-hosted
+# skill driven by the user's own machine, version pinning alone blocks
+# 95%+ of typosquat-class supply-chain attacks. See:
+#   audit/37_security.md (threat model)
+#   audit/00_synthesis_v2.md (HIGH→MEDIUM downgrade rationale)
+#   audit/00_synthesis_v2.md §"v3 사용자 결정 패치" (openai dep added)
+
+jinja2==3.1.4
+pyyaml==6.0.2
+pillow==11.0.0
+bleach==6.2.0
+markupsafe==3.0.2
+openai==2.34.0

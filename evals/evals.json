@@ -1,0 +1,63 @@
+{
+  "skill_name": "founder-portfolio",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "이력서 만들어줘. PDF로 한 장짜리 깔끔한 거.",
+      "expected_output": "1-page A4 PDF rendered with the founder-portfolio skill, default style (swiss-pure). File saved to cwd or a sensible default location, opened in Preview.",
+      "files": [],
+      "assertions": [
+        {"text": "Skill founder-portfolio was invoked (not resume-builder, not weekly-pdf)"},
+        {"text": "Output is a single PDF file"},
+        {"text": "PDF size > 1 MB (indicates photo and seal embedded successfully)"},
+        {"text": "PDF page count = 1 (1-page constraint enforced)"},
+        {"text": "render.py was called with --style swiss-pure (or no --style, defaulting to swiss-pure)"}
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "내 founder portfolio 5가지 스타일 다 뽑아줘. 데스크탑에 저장하고. 각각 PDF로.",
+      "expected_output": "Five PDFs, one per Swiss variant (pure / red / cream / navy / seal), saved to ~/Desktop/, each ~2-3 MB, all opened or listed.",
+      "files": [],
+      "assertions": [
+        {"text": "render.py was invoked with --style all"},
+        {"text": "Exactly 5 PDF files produced"},
+        {"text": "Filenames contain swiss-pure, swiss-red, swiss-cream, swiss-navy, swiss-seal substrings respectively"},
+        {"text": "All 5 PDFs are saved under ~/Desktop/ (or the user-specified output dir)"},
+        {"text": "Each PDF is between 1.5 MB and 5 MB"}
+      ]
+    },
+    {
+      "id": 3,
+      "prompt": "정상록 프로필 PDF 만들어줘 — 빨간색 액센트 들어간 걸로. 카카오 미팅에 가져가게.",
+      "expected_output": "Single PDF in swiss-red style (red hairline accent), opened in Preview. Should NOT be swiss-seal (that's vermilion 朱印, different aesthetic).",
+      "files": [],
+      "assertions": [
+        {"text": "Skill founder-portfolio was invoked"},
+        {"text": "Style chosen is swiss-red specifically (not swiss-seal, not swiss-pure)"},
+        {"text": "Single PDF output, ~2-3 MB"},
+        {"text": "render.py was called with --style swiss-red"}
+      ]
+    },
+    {
+      "id": 4,
+      "prompt": "Reactive Resume에 올릴 ATS 친화적인 일반 resume JSON 만들어줘.",
+      "expected_output": "This should NOT trigger founder-portfolio. It should route to resume-builder skill (which handles Reactive Resume schema). founder-portfolio is for editorial 1-page PDFs, not ATS JSON.",
+      "files": [],
+      "assertions": [
+        {"text": "Skill founder-portfolio was NOT invoked"},
+        {"text": "resume-builder skill was invoked instead, OR the model explained it was deferring to that skill"}
+      ]
+    },
+    {
+      "id": 5,
+      "prompt": "지난주 KPI 보고서 PDF 뽑아줘 매출이랑 미팅이랑 정리해서.",
+      "expected_output": "This should NOT trigger founder-portfolio. It should route to weekly-pdf skill. founder-portfolio is for personal/founder profiles, not weekly business KPI rollups.",
+      "files": [],
+      "assertions": [
+        {"text": "Skill founder-portfolio was NOT invoked"},
+        {"text": "weekly-pdf skill was invoked instead, OR the model identified weekly-pdf as the right tool"}
+      ]
+    }
+  ]
+}

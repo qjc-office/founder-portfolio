@@ -1,0 +1,167 @@
+# Founder Portfolio — Sangrok Jung (Quantum Jump Club)
+# This is the bundled default profile. To use a different person:
+#   1. Copy this file to your project directory as `profile.yaml`
+#   2. Edit the fields below
+#   3. Run `/founder-portfolio --profile path/to/your.yaml`
+
+name:
+  display: "Sangrok Jung"
+  korean: "정상록"
+  hanja: "鄭常綠"
+
+role: "Founder & CEO, Quantum Jump Club"
+location: "Pangyo, Korea"
+established: 2024
+issue_date: "2026-05-01"
+
+# Photo and seal — relative to the skill directory or absolute path
+photo: "assets/photos/p2_gq_charcoal.png"
+photo_caption: "Photographed in Pangyo, May 2026."
+seal: "assets/seals/seal_hanja_round.png"
+seal_legal: "assets/seals/seal_company_qjc.png"   # 法人印 (used in swiss-seal style)
+
+# Brand line that appears in the top bar
+brand_tag: "A founder portfolio."
+
+# Hero lead paragraph — Korean preferred for Korean audience contexts
+lead: |
+  이력 한 장이 아닌 공개된 결과물로 검증되어 온 컨설턴트. Claude Code
+  하네스를 직접 운영하는 30곳+ 자문 파트너이자, 누적 1,000명 이상의
+  교육 수강생을 배출한 부티크의 창립자.
+
+# Background trajectory — no dates, just the flow.
+# Each entry is one stop on the arrow chain.
+background:
+  label: "Background"
+  steps:
+    - "백제예술대 미디어음악과 (작곡)"
+    - "엔코아 플레이데이터 커뮤니티 운영 총괄"
+    - "경남대 빅데이터 연구원 (KDATA 빅리더 사업)"
+    - "Founder, Quantum Jump Club"
+  emphasize_indices: [2, 3]   # which steps to render in accent color (0-indexed)
+
+# 4 metric cards
+metrics:
+  - { num: "1,000+", label: "Total Students" }
+  - { num: "29K+",  label: "YouTube · @qjc_qjc" }
+  - { num: "26K+",  label: "Threads · @qjc.ai" }
+  - { num: "30+",   label: "Clients of Record" }
+
+# Pull quote — single line, signature positioning statement
+quote:
+  text: "Claude Code 하네스를 직접 운영하는 컨설턴트는 흔치 않습니다. 이력 한 장으로 의심받는 시대, 저는 공개된 결과물로 검증되어 왔습니다."
+  attribution: "Sangrok Jung · Founder & CEO, Quantum Jump Club"
+
+# Selected projects — 10 entries
+# typ: tag prefix (Samsung, Kakao, etc.) shown above name
+# name: project headline (rendered bold)
+# desc: 1-line description with strong markup using <b>...</b>
+projects:
+  - typ: "01 · Samsung"
+    name: "GenAI L4"
+    desc: "<b>삼성전자</b> GenAI PowerUser Level 4 · 집합 8회 + 온라인 4회 (2026.03–) · 패스트캠퍼스 경유 <b>삼성금융연수원 AICrew</b> 출강 PRD 완성."
+  - typ: "02 · Kakao · 5/14"
+    name: "하네스 세미나"
+    desc: "<b>카카오</b> 사내 「하네스 엔지니어링 세미나」 · 제안서 v2 송부 · 2026.05.14 예정 (양나은 담당)."
+  - typ: "03 · Likelion · 5/15"
+    name: "B2G 9차시 OSMU VOD"
+    desc: "<b>멋쟁이사자처럼</b> 9차시 OSMU VOD 직접 제작 · 1차 5/1 납품 · <b>2차 5/15 납품 예정</b>."
+  - typ: "04 · Wikibook · 5/12"
+    name: "AI 에이전트 도서"
+    desc: "<b>위키북스 + 길벗출판사</b> 동시 검토 · 이대엽 에디터 · <b>5/12 미팅 확정</b> · 집필 자동화 시스템 기반 직접 집필."
+  - typ: "05 · Professor"
+    name: "「추론의 여정」"
+    desc: "이도다이어리 작가 <b>김경묵 교수</b>와 4주 커리큘럼 + 세컨드 브레인 + 2일 교육 프로그램 협업 중."
+  - typ: "06 · LG U+"
+    name: "품질혁신센터"
+    desc: "<b>LG U+ 품질혁신센터</b> 자동화 컨설팅 + 타운홀 강연 제안 · 사내 AX 도입 PoC 설계."
+  - typ: "07 · LG · 완료"
+    name: "n8n 멀티유저"
+    desc: "<b>LG</b> n8n 멀티유저 가이드 · lg-ai-demo 프로젝트 · 사내 협업 자동화 가이드 (완료)."
+  - typ: "08 · KNUA"
+    name: "AI 마스터클래스"
+    desc: "<b>한국예술종합학교</b> AI 마스터클래스 · 예술 + AI 융합 커리큘럼 직접 운영."
+  - typ: "09 · 패스트캠퍼스"
+    name: "Claude Code 강의"
+    desc: "<b>패스트캠퍼스</b> Claude Code 강의 제작 · 신은경 PM 협업 · VOD 콘텐츠 직접 기획."
+  - typ: "10 · 알더앤코 · 수금완료"
+    name: "G2B 입찰 SaaS"
+    desc: "<b>윤석중 알더앤코</b> G2B 입찰모니터링 SaaS · MVP → 배포 → <b>잔금 회수 완료 (1,045만원)</b>."
+
+# Clients of record — 32 entries (4-col × 8 rows fits A4 cleanly)
+clients:
+  - { typ: "Enterprise",  name: "삼성전자 · GenAI L4" }
+  - { typ: "Enterprise",  name: "삼성금융연수원 · AICrew" }
+  - { typ: "Enterprise",  name: "LG U+ · 품질혁신센터" }
+  - { typ: "Enterprise",  name: "LG · n8n 멀티유저" }
+  - { typ: "Enterprise",  name: "카카오 · 하네스 5/14" }
+  - { typ: "Enterprise",  name: "현대에버다임 · 컨설팅" }
+  - { typ: "Public",      name: "교육부 · AI 활용대회" }
+  - { typ: "University",  name: "한국예술종합학교 · KNUA" }
+  - { typ: "University",  name: "삼육보건대 · 3 Project" }
+  - { typ: "University",  name: "경남대 · 빅리더 협업" }
+  - { typ: "University",  name: "대전대 RISE · 앤드원" }
+  - { typ: "University",  name: "성균관대 EMBA" }
+  - { typ: "EdTech",      name: "패스트캠퍼스 · Claude Code" }
+  - { typ: "EdTech",      name: "데이원컴퍼니" }
+  - { typ: "EdTech",      name: "멋쟁이사자처럼 · B2G 9차시" }
+  - { typ: "EdTech",      name: "해피엠 EBS" }
+  - { typ: "EdTech",      name: "야나두 · 협업 검토" }
+  - { typ: "EdTech",      name: "엘리스랩 · 강사 섭외" }
+  - { typ: "Publishing",  name: "위키북스 · 출간 5/12" }
+  - { typ: "Publishing",  name: "길벗출판사" }
+  - { typ: "Project",     name: "김경묵 교수 · 이도다이어리" }
+  - { typ: "Project",     name: "윤석중 알더앤코 · G2B" }
+  - { typ: "Project",     name: "조무영 명문디앤씨 · 완료" }
+  - { typ: "Project",     name: "이선빈 · Claude Code 출장" }
+  - { typ: "Venture",     name: "케이런벤처스 · 완료" }
+  - { typ: "Strategy",    name: "네오지콜렉티브 · 신지혜" }
+  - { typ: "Strategy",    name: "라이프쉐어 · 강한소상공인" }
+  - { typ: "Strategy",    name: "인덱스티 · 시장조사" }
+  - { typ: "Project",     name: "김형일 · 블로그 자동화" }
+  - { typ: "Project",     name: "마이헨지 · G-Hunter" }
+  - { typ: "Project",     name: "와이트라이브 · AI 자동화" }
+  - { typ: "Media",       name: "표영호TV · BDAI" }
+
+# Self-operated products — 9 entries (3-col × 3-row)
+products:
+  - num: "01"
+    name: "특이점 빌더스"
+    desc: "AI 코딩 8주 부트캠프. <b>1기+2기 누적 70명+</b> 수료. DOE 프레임워크."
+  - num: "02"
+    name: "VOD 시리즈"
+    desc: "콘텐츠 마스터·정부지원·주식 자동화. <b>128명 수강</b>."
+  - num: "03"
+    name: "QJC Ambassador"
+    desc: "멤버십. 활성 구독 <b>173명</b> · qjc.app 가입자 174명."
+  - num: "04"
+    name: "자동화 시나리오"
+    desc: "Make.com / n8n · <b>100+ 카탈로그</b>."
+  - num: "05"
+    name: "AX-교육"
+    desc: "AI 문제정의 워크숍 커리큘럼."
+  - num: "06"
+    name: "AI도구평가"
+    desc: "생성형 AI 도구 비교/평가."
+  - num: "07"
+    name: "모두의창업챌린저"
+    desc: "정부지원사업 합격 프로그램."
+  - num: "08"
+    name: "전자책"
+    desc: "100% AI 팟캐스트 · 검색 증강 · 크몽 셀러."
+  - num: "09"
+    name: "사주분석 서비스"
+    desc: "AI 명리 분석 · PDF 리포트."
+
+# Contact + social
+contact:
+  mobile: "010-8216-8366"
+  email: "sangrok@quantumjumpclub.com"
+  website: "qjc.app"
+  issue_label: "Issue 26.05.01"
+
+social:
+  youtube:   "youtube.com/@qjc_qjc"
+  instagram: "instagram.com/qjc.ai"
+  linkedin:  "linkedin.com/in/sangrok-jung"
+  threads:   "threads.com/@qjc.ai"

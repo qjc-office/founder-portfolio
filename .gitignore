@@ -1,0 +1,23 @@
+# Python venv (recreate via scripts/bootstrap.sh)
+.venv/
+__pycache__/
+*.pyc
+
+# User secrets (use .env.template as the shared shape)
+.env
+.env.local
+.env.secrets
+
+# PIPA consent record — per-user, never shared
+.consent.json
+
+# Generated artifacts (regenerate from profile.yaml + style)
+*.pdf
+generated/
+assets/photos/generated/
+
+# OS / editor noise
+.DS_Store
+.idea/
+.vscode/
+*.swp

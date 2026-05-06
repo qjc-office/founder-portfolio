@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<title>{{ name.display }} — Swiss Pure</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600;700;800;900&family=Source+Serif+Pro:ital,wght@0,300;0,400;0,600;0,700;1,400&family=Nanum+Myeongjo:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#FFFFFF; --ink:#0A0A0A; --ink-mid:#2a2a2a; --gray:#5a5a5a; --gray-soft:#bbbbbb;
+    --rule:#0A0A0A; --rule-soft:#dadada;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  @page{size:A4;margin:0}
+  html,body{
+    font-family:'Inter','Pretendard','Helvetica Neue',sans-serif;
+    color:var(--ink);background:var(--bg);
+    font-feature-settings:"kern" 1,"liga" 1,"tnum" 1,"calt" 1;
+    text-rendering:optimizeLegibility;-webkit-font-smoothing:antialiased;
+    word-break:keep-all;hanging-punctuation:first last;
+    line-height:1.7;
+  }
+  .ss{font-family:'Source Serif Pro',serif}
+  .nm{font-family:'Nanum Myeongjo',serif}
+
+  .page{width:210mm;min-height:297mm;background:var(--bg);position:relative;page-break-after:always;padding:18mm 18mm 16mm;display:flex;flex-direction:column}
+  .page:last-child{page-break-after:auto}
+
+  /* TOP */
+  .top{display:grid;grid-template-columns:repeat(12,1fr);gap:5mm;padding-bottom:5mm;border-bottom:1.5px solid var(--ink);margin-bottom:11mm}
+  .top .brand{grid-column:1 / 7;font-family:'Inter',sans-serif;font-size:9pt;font-weight:700;letter-spacing:-0.012em;color:var(--ink);align-self:end}
+  .top .brand .gray{color:var(--gray);font-weight:400;margin-left:5mm}
+  .top .meta{grid-column:7 / 13;font-family:'Inter',sans-serif;font-size:8pt;color:var(--gray);font-weight:500;letter-spacing:0.04em;line-height:1.55;text-align:right;align-self:end}
+  .top .meta b{color:var(--ink);font-weight:700}
+
+  /* HERO */
+  .hero{display:grid;grid-template-columns:repeat(12,1fr);gap:5mm;margin-bottom:13mm}
+  .hero-photo{grid-column:1 / 5}
+  .hero-photo .frame{width:100%;aspect-ratio:4 / 5;background:#000;overflow:hidden}
+  .hero-photo .frame img{width:100%;height:100%;object-fit:cover;display:block;filter:contrast(1.04) saturate(0.95)}
+  .hero-photo .cap{font-family:'Inter',sans-serif;font-size:7.5pt;color:var(--gray);font-weight:500;letter-spacing:0.04em;margin-top:3mm;line-height:1.55}
+  .hero-photo .cap b{color:var(--ink);font-weight:700;display:block;margin-bottom:1mm}
+
+  .hero-text{grid-column:5 / 13;padding-top:3mm}
+  .hero-eyebrow{font-family:'Inter',sans-serif;font-size:8.5pt;font-weight:700;letter-spacing:0.32em;color:var(--ink);text-transform:uppercase;margin-bottom:6mm;padding-bottom:3mm;border-bottom:0.5px solid var(--ink);display:flex;justify-content:space-between;align-items:baseline}
+  .hero-eyebrow span:last-child{font-weight:400;color:var(--gray);letter-spacing:0.04em;text-transform:none}
+
+  .hero-name{font-family:'Inter',sans-serif;font-size:64pt;font-weight:300;line-height:0.92;letter-spacing:-0.045em;color:var(--ink);margin-bottom:4mm}
+  .hero-name b{font-weight:700}
+  .hero-name .han{font-family:'Nanum Myeongjo',serif;font-size:40pt;color:var(--ink);font-weight:700;letter-spacing:0.04em;margin-left:8mm;display:inline-block;border-left:1px solid var(--ink);padding-left:8mm;line-height:0.95}
+
+  .hero-role{font-family:'Inter',sans-serif;font-size:13pt;font-weight:500;color:var(--ink);letter-spacing:-0.018em;line-height:1.45;margin-bottom:8mm}
+  .hero-role .gray{color:var(--gray);font-weight:400}
+
+  .hero-lead{font-family:'Source Serif Pro',serif;font-size:11pt;line-height:1.7;color:var(--ink-mid);letter-spacing:-0.005em;font-weight:400;max-width:60ch}
+  .hero-lead b{font-weight:700;color:var(--ink)}
+
+  /* METRICS */
+  .metrics{display:grid;grid-template-columns:repeat(12,1fr);gap:0;border-top:1.5px solid var(--ink);border-bottom:1.5px solid var(--ink);padding:6mm 0;margin-bottom:11mm}
+  .metric{grid-column:span 3;padding:0 5mm;border-right:0.5px solid var(--rule-soft)}
+  .metric:last-child{border-right:none}
+  .metric .num{font-family:'Inter',sans-serif;font-size:32pt;font-weight:300;color:var(--ink);line-height:1;letter-spacing:-0.04em;font-feature-settings:"tnum" 1}
+  .metric .num b{font-weight:700}
+  .metric .lab{font-family:'Inter',sans-serif;font-size:7.5pt;color:var(--gray);font-weight:600;letter-spacing:0.18em;margin-top:3mm;text-transform:uppercase}
+
+  /* QUOTE */
+  .quote{padding:7mm 0;border-top:6px solid var(--ink);border-bottom:0.5px solid var(--ink);margin-bottom:11mm;display:grid;grid-template-columns:repeat(12,1fr);gap:5mm}
+  .quote blockquote{grid-column:4 / 13;font-family:'Inter',sans-serif;font-size:18pt;font-weight:300;line-height:1.4;color:var(--ink);letter-spacing:-0.030em}
+  .quote blockquote em{font-style:italic;font-weight:500;color:var(--ink)}
+  .quote .att{grid-column:4 / 13;font-family:'Inter',sans-serif;font-size:8pt;color:var(--gray);font-weight:600;letter-spacing:0.18em;margin-top:5mm;text-transform:uppercase}
+
+  /* SECTION */
+  .section{display:grid;grid-template-columns:repeat(12,1fr);gap:5mm;margin-bottom:11mm}
+  .section-h{grid-column:1 / 4;font-family:'Inter',sans-serif;font-size:8.5pt;font-weight:700;letter-spacing:0.32em;color:var(--ink);text-transform:uppercase;padding-top:1mm;border-top:1.5px solid var(--ink);margin-top:0}
+  .section-h em{display:block;font-family:'Source Serif Pro',serif;font-style:italic;color:var(--gray);font-weight:400;letter-spacing:0.04em;text-transform:none;font-size:11pt;margin-top:2mm}
+  .section-body{grid-column:4 / 13;padding-top:1mm;border-top:1.5px solid var(--ink)}
+
+  /* PROJECT ROW */
+  .proj-row{display:grid;grid-template-columns:24% 76%;gap:5mm;padding:3.5mm 0;border-bottom:0.5px solid var(--rule-soft);font-size:10pt;line-height:1.7;letter-spacing:-0.005em;align-items:start}
+  .proj-row:last-child{border-bottom:none}
+  .proj-row .typ{font-family:'Inter',sans-serif;font-weight:600;color:var(--ink);font-size:10pt;letter-spacing:-0.012em;line-height:1.3}
+  .proj-row .typ small{display:block;font-family:'Inter',sans-serif;font-size:7pt;color:var(--gray);font-weight:500;letter-spacing:0.18em;margin-bottom:1mm;text-transform:uppercase}
+  .proj-row .desc{font-family:'Source Serif Pro',serif;color:var(--ink-mid);font-weight:400}
+  .proj-row .desc b{font-weight:700;color:var(--ink)}
+
+  /* CLIENT GRID — 4-col */
+  .client-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:0;border-top:1px solid var(--ink);border-left:1px solid var(--ink)}
+  .client-cell{padding:3mm 4mm;border-right:1px solid var(--ink);border-bottom:1px solid var(--ink);font-size:8pt;line-height:1.5;font-family:'Inter',sans-serif;letter-spacing:-0.005em;color:var(--ink)}
+  .client-cell .typ{display:block;font-family:'Inter',sans-serif;font-size:6.5pt;color:var(--gray);font-weight:600;letter-spacing:0.22em;margin-bottom:1.5mm;text-transform:uppercase}
+  .client-cell b{font-weight:700;color:var(--ink)}
+
+  /* SELF-PRODUCT 9 */
+  .product-list{display:grid;grid-template-columns:repeat(3,1fr);gap:5mm}
+  .product{padding-top:3mm;border-top:1px solid var(--ink)}
+  .product .num{font-family:'Inter',sans-serif;font-size:7.5pt;color:var(--gray);font-weight:500;letter-spacing:0.18em;margin-bottom:2mm;text-transform:uppercase}
+  .product .name{font-family:'Inter',sans-serif;font-size:11pt;font-weight:700;color:var(--ink);letter-spacing:-0.018em;line-height:1.3;margin-bottom:2mm}
+  .product .desc{font-family:'Source Serif Pro',serif;font-size:9pt;color:var(--ink-mid);line-height:1.55;letter-spacing:-0.005em;font-weight:400}
+  .product .desc b{font-weight:700;color:var(--ink)}
+
+  /* COLOPHON */
+  .colophon{margin-top:auto;padding-top:6mm;border-top:1.5px solid var(--ink);display:grid;grid-template-columns:repeat(12,1fr);gap:5mm;align-items:center}
+  .colophon .left{grid-column:1 / 9;font-family:'Inter',sans-serif;font-size:8pt;color:var(--gray);letter-spacing:0.04em;line-height:1.55;font-weight:400}
+  .colophon .left b{color:var(--ink);font-weight:700;display:block;font-size:8.5pt;margin-bottom:1mm;letter-spacing:0.18em;text-transform:uppercase}
+  .colophon .right{grid-column:9 / 13;display:flex;justify-content:flex-end;align-items:center;gap:5mm}
+  .colophon .right img{width:14mm;height:14mm;object-fit:contain;mix-blend-mode:multiply;opacity:0.92}
+  .colophon .name{font-family:'Inter',sans-serif;font-size:11pt;font-weight:600;color:var(--ink);letter-spacing:-0.018em}
+  .colophon .name .han{font-family:'Nanum Myeongjo',serif;font-weight:700;color:var(--ink);font-size:11pt;margin-left:5px}
+
+  /* BACKGROUND TRAJECTORY */
+  .hero-bg{margin-top:5mm;padding-top:4mm;border-top:0.5px solid var(--rule-soft);font-family:'Inter',sans-serif;font-size:8.5pt;color:var(--gray);letter-spacing:0.04em;line-height:1.65;font-weight:500;max-width:62ch}
+  .hero-bg b{color:var(--ink);font-weight:700;letter-spacing:0.18em;text-transform:uppercase;font-size:7.5pt;margin-right:5mm}
+  .hero-bg em{color:var(--ink);font-style:italic;font-weight:600}
+  .hero-bg .arrow{color:var(--gray-soft);margin:0 7px;font-weight:400}
+</style>
+</head>
+<body>
+<div class="page">
+
+  <!-- TOP -->
+  <header class="top">
+    <div class="brand">Quantum Jump Club <span class="gray">/ {{ brand_tag }}</span></div>
+    <div class="meta"><b>{{ issue_date }}</b> &nbsp; · &nbsp; {{ location }} &nbsp; · &nbsp; {{ contact.issue_label }}</div>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero">
+
+    <div class="hero-photo">
+      <div class="frame"><img src="{{ photo }}" alt="{{ name.display }} portrait"></div>
+      <div class="cap">
+        <b>{{ name.display }} · <span class="han">{{ name.hanja }}</span></b>
+        {{ photo_caption }}
+      </div>
+    </div>
+
+    <div class="hero-text">
+      <div class="hero-eyebrow">
+        <span>The Founder · A Profile</span>
+        <span>Photographs by QJC Studio</span>
+      </div>
+      <h1 class="hero-name"><b>{{ name.display.split(' ')[0] }}</b><br>{{ name.display.split(' ')[1] }}<span class="han">{{ name.hanja }}</span></h1>
+      <p class="hero-role">{{ role }} <span class="gray">/ Est. {{ established }} / {{ location }}</span></p>
+      <p class="hero-lead">
+        {{ lead | safe }}
+      </p>
+      <p class="hero-bg">
+        <b>— {{ background.label }}</b>
+        {% for step in background.steps %}{% if loop.index0 in background.emphasize_indices %}<em>{{ step }}</em>{% else %}{{ step }}{% endif %}{% if not loop.last %}
+        <span class="arrow">→</span>
+        {% endif %}{% endfor %}
+      </p>
+    </div>
+
+  </section>
+
+  <!-- METRICS -->
+  <section class="metrics">
+    {% for m in metrics %}<div class="metric"><div class="num">{{ m.num | safe }}</div><div class="lab">{{ m.label }}</div></div>
+    {% endfor %}
+  </section>
+
+  <!-- QUOTE -->
+  <div class="quote">
+    <blockquote>
+      {{ quote.text | safe }}
+    </blockquote>
+    <span class="att">{{ quote.attribution }}</span>
+  </div>
+
+  <!-- SELECTED PROJECTS — 10 -->
+  <section class="section">
+    <h2 class="section-h">Selected<br>Projects<em>주요 진행 10선</em></h2>
+    <div class="section-body">
+
+      {% for p in projects %}<div class="proj-row">
+        <div class="typ"><small>{{ p.typ }}</small>{{ p.name }}</div>
+        <div class="desc">{{ p.desc | safe }}</div>
+      </div>
+      {% endfor %}
+    </div>
+  </section>
+
+  <!-- CLIENTS — 30곳+ -->
+  <section class="section">
+    <h2 class="section-h">Clients of<br>Record<em>자문 파트너 30곳+</em></h2>
+    <div class="section-body">
+      <div class="client-grid">
+        {% for c in clients %}<div class="client-cell"><span class="typ">{{ c.typ }}</span>{{ c.name | safe }}</div>
+        {% endfor %}
+      </div>
+    </div>
+  </section>
+
+  <!-- SELF PRODUCTS -->
+  <section class="section">
+    <h2 class="section-h">Self<br>Operated<em>자체 사업 9</em></h2>
+    <div class="section-body">
+      <div class="product-list">
+        {% for prod in products %}<div class="product"><div class="num">— {{ prod.num }}</div><div class="name">{{ prod.name }}</div><div class="desc">{{ prod.desc | safe }}</div></div>
+        {% endfor %}
+      </div>
+    </div>
+  </section>
+
+  <!-- COLOPHON -->
+  <footer class="colophon">
+    <div class="left">
+      <b>Quantum Jump Club</b>
+      {{ location }} · {{ contact.issue_label }}<br>
+      M {{ contact.mobile }} / E {{ contact.email }} / W {{ contact.website }}<br>
+      YT {{ social.youtube }} · IG {{ social.instagram }} · IN {{ social.linkedin }} · TH {{ social.threads }}
+    </div>
+    <div class="right">
+      <img src="{{ seal }}" alt="seal">
+      <span class="name">{{ name.display }}<span class="han">{{ name.hanja }}</span></span>
+    </div>
+  </footer>
+
+</div>
+</body>
+</html>
