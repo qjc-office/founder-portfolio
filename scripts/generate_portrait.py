@@ -49,8 +49,8 @@ PRESETS: dict[str, str] = {
         "Preserve the subject's facial features exactly."
     ),
     "monochrome": (
-        "Transform this portrait into a black and white photograph in the style of Wim Wenders: "
-        "high contrast, deep shadows, vintage Leica M aesthetic. "
+        "Transform this portrait into a fine art black and white photograph: "
+        "high contrast lighting, deep shadows, professional editorial monochrome aesthetic. "
         "Preserve the subject's facial features exactly."
     ),
     "warm": (
